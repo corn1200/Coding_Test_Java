@@ -16,9 +16,9 @@ class Interval {
     }
 }
 
-public class MeetingRoom {
+public class MeetingRooms {
     public static void main(String[] args) {
-        MeetingRoom a = new MeetingRoom();
+        MeetingRooms a = new MeetingRooms();
 
         Interval int1 = new Interval(15, 20);
         Interval int2 = new Interval(5, 10);
