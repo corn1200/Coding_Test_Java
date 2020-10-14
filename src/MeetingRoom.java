@@ -1,10 +1,10 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 
-class Interval{
+class Interval {
     int start;
     int end;
+
     Interval() {
         this.start = 0;
         this.end = 0;
@@ -15,6 +15,7 @@ class Interval{
         this.end = e;
     }
 }
+
 public class MeetingRoom {
     public static void main(String[] args) {
         MeetingRoom a = new MeetingRoom();
@@ -35,6 +36,7 @@ public class MeetingRoom {
         System.out.println("===after sort===");
         print(intervals);
 
+        // 2
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i - 1].end > intervals[i].start) {
                 return false;
@@ -50,6 +52,7 @@ public class MeetingRoom {
             System.out.println(in.start + " " + in.end);
         }
     }
+
     Comparator<Interval> Comp = new Comparator<Interval>() {
 
         @Override
