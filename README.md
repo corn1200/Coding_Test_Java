@@ -1,4 +1,4 @@
-# MeetingRoom
+# MeetingRooms
 
 ## Problem
 
@@ -51,3 +51,13 @@ Comparator<Interval> Comp = new Comparator<Interval>() { // Comp 변수에 Compa
         }
     };
 ```
+
+# MoveZeros
+
+## Problem
+
+- 배열 num 을 감안할 때 0이 아닌 요소의 상대적인 순서를 유지하면서 모든 0을 끝으로 이동시키는 함수를 작성하십시오
+
+Input: [0,3,2,0,8,5]
+
+Output: [3,2,8,5,0,0]
