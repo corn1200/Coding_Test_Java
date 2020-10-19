@@ -73,3 +73,12 @@ Input: int[] nums = [2,8,11,21];
 
 Output: int[] = [1,2]
 
+# DailyTemperature
+
+## Problem
+
+- 각 날짜를 기준으로 며칠 뒤에 더워지나 출력하십시오
+
+int[] nums = [73,74,75,71,69,72,76,73]
+
+Output: 1 1 4 2 1 1 0 0
