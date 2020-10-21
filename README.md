@@ -1,4 +1,4 @@
-# MeetingRooms
+# MeetingRoom
 
 ## Problem
 
@@ -52,7 +52,7 @@ Comparator<Interval> Comp = new Comparator<Interval>() { // Comp 변수에 Compa
     };
 ```
 
-# MoveZeros
+# MoveZero
 
 ## Problem
 
@@ -91,3 +91,17 @@ Output: 1 1 4 2 1 1 0 0
 
 Input: [[1,3],[2,6],[8,10],[15,18]]
 Output: [[1,6],[8,10],[15,18]]
+
+# MeetingRoom2
+
+## Problem
+
+- 회의 시간표를 보고 몇개의 회의실이 필요한지 출력하십시오
+
+Input: [[0,30],[5,10],[15,20]]
+
+Output: 2
+* * *
+Input: [[7,10],[2,4]]
+
+Output: 1
