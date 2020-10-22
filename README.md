@@ -105,3 +105,23 @@ Output: 2
 Input: [[7,10],[2,4]]
 
 Output: 1
+
+# JewelsAndStones
+
+## Problem
+
+- Stone 속에 Jewel 에 해당하는 값(char)이 얼마나 있는지 출력하십시오
+
+Input: J = "aA", S = "aAAbbbb"
+
+Output: 3
+
+# LicenseKeyFormatting
+
+Input: String str = "8F3Z-2e-9-w"
+
+String str = "8-5g-3-J"
+
+int k = 4
+
+Output: 8F3Z-
