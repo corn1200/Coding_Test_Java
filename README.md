@@ -118,10 +118,14 @@ Output: 3
 
 # LicenseKeyFormatting
 
+## Problem
+
+- 뒤에서 k의 값만큼의 간격에 "-" 삽입 & 대문자로 출력하십시오
+
 Input: String str = "8F3Z-2e-9-w"
 
 String str = "8-5g-3-J"
 
 int k = 4
 
-Output: 8F3Z-
+Output: 8F3Z-2E9W, 8-5G3J
