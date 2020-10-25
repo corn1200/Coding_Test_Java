@@ -171,6 +171,54 @@ int[] nums = [73,74,75,71,69,72,76,73]
 
 Output: 1 1 4 2 1 1 0 0
 
+## 해설
+
+이 문제는 Stack 을 이용하여 풉니다. 배열엔 각각의 날짜의 온도가 입력되어있습니다. 목적은 배열에 날짜마다 며칠 뒤에 해당 날짜보다 더워지는지 저장하고 출력하는것입니다.
+
+```
+int[] nums = {73, 74, 75, 71, 69, 72, 76, 73};
+        int[] res = dailyTemperatures(nums);
+```
+
+각 날짜의 온도를 저장하는 배열을 생성합니다. 배열 res 에는 dailyTemperatures 메소드에 nums 를 넘겨주고 얻은 값을 반환합니다.
+dailyTemperatures 메소드에선 목적에 부합하는 동작을 합니다.
+
+```
+private static int[] dailyTemperatures(int[] temper) {
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[temper.length];
+```
+
+목적에 부합하는 계산을 위해 Stack 구조를 활용해야 합니다. result 에는 문제에서 최종적으로 바라는 정답을 저장할것입니다.
+
+```
+        for (int i = 0; i < temper.length; i++) {
+            while (!stack.isEmpty() && temper[stack.peek()] < temper[i]) {
+                int index = stack.pop();
+                result[index] = i - index;
+            }
+
+            stack.push(i);
+        }
+        return result;
+    }
+```
+
+stack 이 비어 있지 않고 추가적인 조건을 만족할 때 반복문을 실행합니다. 처음엔 stack 에 아무 값도 저장 되지 않았을 테니
+반복문을 지나서 현재 날짜(i)를 stack 에 삽입하고 다시 for 를 반복합니다.
+
+while 의 조건을 다시 살펴보면 stack 이 비어있지 않고 현재 날짜(i)의 온도가 stack 에 저장된 날짜(아직 해당 날짜의 온도보다 높은 온도인 날짜를 조우하지 못함) 가장 최근 저장된 날짜의 온도와 비교하여 현재 날짜의 온도가 더 높을 때 조건이 성립합니다.
+가장 최근 저장된 날짜가 해당 날짜보다 높은 온도를 기록한 날짜를 조우했기 때문에 pop 하여 stack 에서 삭제하는 동시에 index 에 저장하고 result 에 해당 날짜가 며칠 뒤에 더 높은 온도인 날짜를 조우하는지 저장합니다.
+
+계속 반복하며 남은 날짜들도 비교합니다. 가장 높은 온도를 찾는것이 아니기 때문에 위와 같은 동작이 문제의 목적에 부합합니다.
+
+```
+        System.out.println("===result===");
+        for (int i : res) {
+            System.out.print(i + " ");
+        }
+```
+
 # MergeInterval
 
 ## Problem
