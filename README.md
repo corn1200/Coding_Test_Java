@@ -104,16 +104,62 @@ index 의 값을 증가시켜 다음 0이 아닌 숫자가 다음 배열에 순�
 
 ## Problem
 
-- 배열의 숫자들 중 두 숫자를 더해서 10이 되는 두 숫자의 위치를 반환하십시오
+- 배열의 숫자들 중 두 숫자를 더해서 10이 되는 두 숫자의 인덱스를 반환하십시오
 
-Input: int[] nums = [2,8,11,21];
-        int target = 10;
+Input: int[] nums = [2,8,11,21] / int target = 10
 
 Output: int[] = [1,2]
 
 ## 해설
 
+보통 배열의 숫자를 조합해서 특정 숫자를 만드는 작업은 경우에 따라 굉장히 많은 작업이 요구됩니다. 
+그래서 이 문제는 HashMap 의 특징을 살려 풉니다.
 
+```
+int[] nums = {2, 8, 11, 21};
+        int target = 10;
+        TwoSum a = new TwoSum();
+        int[] result = a.solve(nums, target);
+```
+
+우선 배열에 숫자를 입력합니다. 그리고 배열의 숫자를 조합해 만들 숫자를 target 변수에 저장합니다.
+solve 메소드에 배열과 target 을 넘깁니다. 그럼 solve 메소드 안에선 넘겨 받은 파라미터로 아래와 같은 동작을 합니다.
+
+```
+public int[] solve(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[2];
+```
+
+우선 Integer 값을 저장하는 HashMap 변수를 생성하고, 조합해서 target 의 숫자가 되는 두 숫자의 위치를 저장할 배열도 생성합니다.
+
+```
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                int mapValue = map.get(nums[i]);
+                result[0] = mapValue + 1;
+                result[1] = i + 1;
+            } else {
+                map.put(target - nums[i], i);
+            }
+        }
+
+        return result;
+    }
+```
+
+현재 map 변수에는 아무 값도 존재하지 않습니다. 때문에 첫번째 for 동작에서 if 의 조건은 충족되지 않고 else 로 넘어갑니다. 
+map 에 각각 target 에서 현재 배열 값에서 뺀 값(현재 배열 값이 어떤 숫자와 조합해야 목표값이 나오는지 판별)과 현재 배열의 위치가 저장됩니다. 
+계속 반복하며 현재 배열 값과 조합하여 목표에 도달 값이 map 에 있는지 찾습니다(containsKey). 만약 있다면 map 에서 해당 값의 위치를 불러오고 현재 배열의 위치와 함께 result 배열에 저장합니다.
+이는 각각 몇번째 배열에 target 을 만족하는 값이 있는지를 나타냅니다.
+
+```
+        for (int i : result) {
+            System.out.println(i);
+        }
+```
+
+찾아낸 조합이 몇번째인지는 배열에 담겨있고 그 배열을 출력합니다.
 
 # DailyTemperature
 
