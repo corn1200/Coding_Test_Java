@@ -1,3 +1,5 @@
+# [String & Array]
+
 # MeetingRoom
 
 ## Problem
@@ -47,7 +49,7 @@ Comparator<Interval> Comp = new Comparator<Interval>() { // Comp 변수에 Compa
         @Override
         public int compare(Interval a, Interval b) { // compare 메소드를 재정의 해서 객체 정렬 규칙을 정한다.
             // return b.start - a.start;
-            return a.start - b.start; // return 값으로 오름차순 / 내림차순을 정할 수 있다.
+            return a.start - b.start; // return 값으로 오름차순 / 내림차순을 정할 수 있습니다.
         }
     };
 ```
@@ -62,6 +64,42 @@ Input: [0,3,2,0,8,5]
 
 Output: [3,2,8,5,0,0]
 
+## 해설
+
+0을 제외한 모든 숫자를 왼쪽으로 밀면서 0을 제외한 숫자들의 순서는 유지하는게 조건입니다.
+배열을 한개씩 확인하면서 0이 아닌 경우일 때 마다 0부터 시작하는 인덱스에 저장할것이고, 인덱스를 증가시킬것입니다.
+
+```
+int[] nums = {0, 3, 2, 0, 8, 5};
+        int index = 0;
+```
+
+우선 배열 안에 값을 입력합니다.
+인덱스의 시작은 0 입니다.
+index 변수를 기준으로 0이 아닌 숫자와 조우할 때 마다 index 번 째 배열에 값을 저장하고, index 의 값은 증가합니다.
+
+```
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+```
+
+0이 아닌 숫자를 발견하면 index 번 째 배열에 해당 값을 저장합니다.
+index 의 값을 증가시켜 다음 0이 아닌 숫자가 다음 배열에 순서대로 저장되도록 합니다.
+
+```
+        while (index < nums.length) {
+            nums[index] = 0;
+            index++;
+        }
+```
+
+배열의 값을 전부 확인하고 0이 아닌 숫자를 왼쪽으로 밀고 나면 index 의 값은 배열 속 0이 아닌 숫자만큼 증가되었을것입니다.
+때문에 나머지 0이었던 숫자들은 현재 index 를 기준으로 배열의 크기만큼 반복해서 남은 배열에 0을 입력하면 바라는 동작이 완성됩니다.
+
 # TwoSum
 
 ## Problem
@@ -72,6 +110,10 @@ Input: int[] nums = [2,8,11,21];
         int target = 10;
 
 Output: int[] = [1,2]
+
+## 해설
+
+
 
 # DailyTemperature
 

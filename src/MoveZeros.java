@@ -7,8 +7,16 @@ public class MoveZeros {
             if (nums[i] != 0) {
                 nums[index] = nums[i];
                 index++;
-                System.out.println(nums[i]);
             }
+        }
+
+        while (index < nums.length) {
+            nums[index] = 0;
+            index++;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + " ");
         }
     }
 }
