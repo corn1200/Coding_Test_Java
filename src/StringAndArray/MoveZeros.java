@@ -1,3 +1,5 @@
+package StringAndArray;
+
 public class MoveZeros {
     public static void main(String[] args) {
         int[] nums = {0, 3, 2, 0, 8, 5};

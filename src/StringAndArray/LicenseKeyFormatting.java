@@ -1,4 +1,6 @@
-public class LicenseKetFormatting {
+package StringAndArray;
+
+public class LicenseKeyFormatting {
     public static void main(String[] args) {
         String S = "5F3Z-2e-9-w";
         int k = 4;

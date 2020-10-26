@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package StringAndArray;
+
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
