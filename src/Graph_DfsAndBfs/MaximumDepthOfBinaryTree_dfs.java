@@ -21,7 +21,10 @@ public class MaximumDepthOfBinaryTree_dfs {
     // 스택에 최상단 트리를 넘겨줍니다.
     // 반복문이 반복될 때 마다 현재 트리의
     // 하단 트리를 넘겨주며 이전 트리는 제외시킵니다.
-    //
+    // 더 이상 하단 트리가 존재하지 않아 스택에
+    // 담을 수 없을 때 까지 내려가며
+    // 더 이상 내려갈 수 없으면 반복문을 종료하고
+    // 가장 깊은 트리의 깊이를 반환합니다.
     public int calcMaxDepthAsDfs(TreeNode treeNode) {
         if (treeNode == null) {
             return 0;
